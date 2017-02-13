@@ -62,6 +62,16 @@ forwardPass(Node outputNode, List<Node> sortedNodes) {
   return outputNode.value;
 }
 
+dot(l1, l2) {
+  final f = l1[0] is List //
+      ? dot2 //
+      : l1[0] is num //
+          ? dot1
+          : throw 'Invalid input';
+
+  return f(l1, l2);
+}
+
 num dot1([List<num> l1 = const [], List<num> l2 = const []]) {
   if (l1.length != l2.length) throw 'Only lists of the same length allowed';
 

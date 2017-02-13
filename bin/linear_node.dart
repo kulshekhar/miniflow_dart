@@ -16,6 +16,6 @@ class Linear extends Node {
     final weights = _weights.value;
     final bias = _bias.value;
 
-    value = dot1(inputs, weights) + bias;
+    value = dot(inputs, weights) + bias;
   }
 }
