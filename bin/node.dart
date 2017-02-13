@@ -1,12 +1,7 @@
 class Node {
   List inboundNodes = [];
   List outboundNodes = [];
-  dynamic nodeValue;
-
-  dynamic get value => nodeValue;
-  void set value(newValue) {
-    nodeValue = newValue;
-  }
+  dynamic value;
 
   Node([this.inboundNodes = const []]) {
     inboundNodes.forEach((Node n) {
@@ -23,7 +18,4 @@ class Node {
   }
 
   num operator +(Node n) => value + n.value;
-
-  @override
-  toString() => value.toString();
 }
