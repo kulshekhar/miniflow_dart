@@ -1,13 +1,14 @@
+import 'array.dart';
 import 'input_node.dart';
 import 'node.dart';
 import 'util.dart';
 
-class Linear extends Node {
-  Input<List<double>> _inputs;
-  Input<List<double>> _weights;
-  Input<double> _bias;
+class LinearNode extends Node {
+  Input<Array> _inputs;
+  Input<Array> _weights;
+  Input<Array> _bias;
 
-  Linear(this._inputs, this._weights, this._bias)
+  LinearNode(this._inputs, this._weights, this._bias)
       : super([_inputs, _weights, _bias]);
 
   @override
@@ -16,6 +17,10 @@ class Linear extends Node {
     final weights = _weights.value;
     final bias = _bias.value;
 
-    value = dot(inputs, weights) + bias;
+    value = inputs * weights + bias;
   }
 }
+
+LinearNode Linear(
+        Input<Array> inputs, Input<Array> weights, Input<Array> bias) =>
+    new LinearNode(inputs, weights, bias);

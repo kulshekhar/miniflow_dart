@@ -31,7 +31,7 @@ List<Node> topologicalSort(Map<Node, dynamic> feedDict) {
     final n = S.last;
     S.remove(n);
 
-    if (n is Input) {
+    if (n is InputNode) {
       n.value = feedDict[n];
     }
 
