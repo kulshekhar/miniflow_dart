@@ -1,6 +1,6 @@
 import 'node.dart';
 
-class Input<T> extends Node {
+class InputNode<T> extends Node {
   @override
   T get value => nodeValue;
 
@@ -9,3 +9,5 @@ class Input<T> extends Node {
     this.value = value ?? this.value;
   }
 }
+
+InputNode<T> Input<T>() => new InputNode<T>();

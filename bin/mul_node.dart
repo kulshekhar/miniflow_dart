@@ -1,8 +1,8 @@
 import 'node.dart';
 
-class Multiply extends Node {
-  Multiply(Node x, Node y) : super([x, y]);
-  Multiply.fromList(List<Node> l) : super(l);
+class MultiplyNode extends Node {
+  MultiplyNode(Node x, Node y) : super([x, y]);
+  MultiplyNode.fromList(List<Node> l) : super(l);
 
   @override
   forward() {
@@ -13,3 +13,6 @@ class Multiply extends Node {
     value = total;
   }
 }
+
+MultiplyNode Multiply(x, [y]) =>
+    x is List<Node> ? new MultiplyNode.fromList(x) : new MultiplyNode(x, y);

@@ -1,9 +1,9 @@
 import 'input_node.dart';
 import 'node.dart';
 
-class Add extends Node {
-  Add(Input x, Input y) : super([x, y]);
-  Add.fromList(List<Input> l) : super(l);
+class AddNode extends Node {
+  AddNode(Input x, Input y) : super([x, y]);
+  AddNode.fromList(List<Input> l) : super(l);
 
   @override
   forward() {
@@ -14,3 +14,6 @@ class Add extends Node {
     value = total;
   }
 }
+
+AddNode Add(x, [y]) =>
+    x is List<Node> ? new AddNode.fromList(x) : new AddNode(x, y);
