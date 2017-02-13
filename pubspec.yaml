@@ -1,3 +1,5 @@
 name: miniflow
 version: 0.0.1
 description: A simple console application.
+dependencies:
+  vector_math: '^2.0.0'
