@@ -10,7 +10,7 @@ List<Node> topologicalSort(Map<Node, dynamic> feedDict) {
   while (nodes.length > 0) {
     final n = nodes.removeAt(0);
     if (!G.containsKey(n)) {
-      G[n] = new _NodeGraph(); // {'in': new Set(), 'out': new Set()};
+      G[n] = new _NodeGraph();
     }
 
     n.outboundNodes.forEach((Node m) {
@@ -71,4 +71,25 @@ num dot1([List<num> l1 = const [], List<num> l2 = const []]) {
   }
 
   return total;
+}
+
+List<num> dot2([List<List<num>> l1 = const [], List<List<num>> l2 = const []]) {
+  final result = <num>[];
+
+  if (l1.length == 0 || l2.length == 0) throw 'One or more matrices are empty';
+
+  final rows = l1.length;
+  final columns = l1[0].length;
+
+  if (l2.length != columns) throw 'The matrices cannot be multiplied';
+
+  for (var i = 0; i < rows; i++) {
+    var total = 0;
+    for (var j = 0; j < columns; j++) {
+      total += l1[i][j] * l2[j][i];
+    }
+    result.add(total);
+  }
+
+  return result;
 }
