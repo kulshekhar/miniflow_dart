@@ -61,3 +61,14 @@ forwardPass(Node outputNode, List<Node> sortedNodes) {
 
   return outputNode.value;
 }
+
+num dot1([List<num> l1 = const [], List<num> l2 = const []]) {
+  if (l1.length != l2.length) throw 'Only lists of the same length allowed';
+
+  var total = 0;
+  for (var i = 0, l = l1.length; i < l; i++) {
+    total += l1[i] * l2[i];
+  }
+
+  return total;
+}
